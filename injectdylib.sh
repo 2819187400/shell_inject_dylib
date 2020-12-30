@@ -19,8 +19,8 @@ libsubstrate="${temp}/${LIBSUBSTRATE##*/}"
 #创建临时工程目录
 rm -rf ${shell_path}/extracted
 rm -rf ${shell_path}/Payload
-rm -rf ${shell_path}/injected.ipa
 rm -rf ${temp}
+rm -rf ${shell_path}/injected.ipa
 mkdir ${shell_path}/Payload/
 mkdir ${temp}
 
@@ -32,8 +32,8 @@ APPLICATION=$(ls "${shell_path}/extracted/Payload/")
 app="${shell_path}/extracted/Payload/${APPLICATION}"
 
 #删除无法签名的组件
-rm -rf ${app}/*watch* ${app}/*Watch*
-rm -rf ${app}/*plugIns* ${app}/*PlugIns*
+rm -rf ${app}/*Watch*
+rm -rf ${app}/*PlugIns*
 rm -rf ${app}/*com.apple.WatchPlaceholder*
 
 #检查是否依赖libsubstrate，如果依赖就替换，并且把libsubstrate.dylib拷贝进去
